@@ -15,6 +15,13 @@ public class ArrangeNumbersInAlternateOrders {
 	 * @return
 	 */
 	public int[] algorithm(int[] array) {
+		sort(array);
+		for(int i=2;i<array.length;i+=2){
+			int temp=array[i-1];
+			array[i-1]=array[i];
+			array[i]=temp;
+		}
+		
 		return array;
 	}
 	
@@ -24,5 +31,21 @@ public class ArrangeNumbersInAlternateOrders {
 	 * @param array
 	 */
 	public static void sort(int array[]){
+		boolean bsort = false;
+		int i = 1; 
+		while(true){	
+			if(array[i-1] > array[i]){
+				int temp=array[i];
+				array[i]=array[i-1];
+				array[i-1]=temp;
+				bsort=true;
+			}
+			i++;
+			if(i==array.length){
+				if(!bsort) break;
+				bsort=false;
+				i=1;
+			}
+		}
 	}
 }
