@@ -8,6 +8,25 @@ public class LinkedList {
 	 * @param k
 	 */
 	public void add(int k) {
+		ListNode n=new ListNode();
+		n.value=k;
+		
+		if(head==null){
+			System.out.println("Node val head " + n.value);
+			head=n;
+			return;
+		}
+		
+		ListNode current=head;
+		while(current.next!=null){
+			current=current.next;
+			System.out.println("Node val " + current.value);
+			if(current.next==null)
+				System.out.println("Found tail add val " + n.value);
+		}
+		
+		current.next=n;	
+		
 	}
 
 	/**
