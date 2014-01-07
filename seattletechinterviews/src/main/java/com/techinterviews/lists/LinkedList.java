@@ -1,5 +1,6 @@
 package com.techinterviews.lists;
 
+
 public class LinkedList {
 	ListNode head;
 	/**
@@ -7,7 +8,7 @@ public class LinkedList {
 	 * 
 	 * @param k
 	 */
-	public void add(int k) {
+	public void addToTail(int k) {
 		ListNode n=new ListNode();
 		n.value=k;
 		
@@ -30,6 +31,25 @@ public class LinkedList {
 	}
 
 	/**
+	 * Please implement and execute the <code>AddLinkedListTest</code> 
+	 * 
+	 * @param k
+	 */
+	public void add(int k) {
+		ListNode n=new ListNode();
+		n.value=k;
+		
+		if(head==null){
+			head=n;
+			return;
+		}
+		else{
+			n.next=head;
+			head=n;
+		}	
+	}
+
+	/**
 	 * Please implement and execute the <code>InsertAtLinkedListTest</code>
 	 * @param k
 	 * @param at
@@ -39,6 +59,16 @@ public class LinkedList {
 	}
 
 	public void reverse() {
+		ListNode prev=null;
+		ListNode current=head;
+		
+		while(current!=null){
+			ListNode next=current.next;
+			current.next=prev;
+			prev=current;
+			current=next;
+		}
+		head=prev;
 	}
 
 	public ListNode get(int at) {
