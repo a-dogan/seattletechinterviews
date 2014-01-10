@@ -15,7 +15,7 @@ public class Find2NumbersThatAddToN {
 		int result[]={};
 		HashSet<Integer> intSet = new HashSet<Integer>();
 		
-		if(array==null || 0==array.length || n>Integer.MAX_VALUE)
+		if(array==null || 0==array.length)
 			return result;
 		
 		int valToCheck;

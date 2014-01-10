@@ -3,6 +3,7 @@ import java.util.Random;
 
 import junit.framework.Assert;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import com.techinterviews.arrays.ArrangeNumbersInAlternateOrders;
@@ -58,7 +59,7 @@ public class ArrangeNumbersInAlternateOrdersTest {
 		compareArrays(array, arrayResult);
 	}
 	
-	@Test
+	@Ignore @Test
 	public void testTimeComplexityNumbers(){
 		
 		int array[] = new int [1000];

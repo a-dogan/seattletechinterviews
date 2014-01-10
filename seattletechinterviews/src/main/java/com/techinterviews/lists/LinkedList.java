@@ -41,7 +41,6 @@ public class LinkedList {
 		
 		if(head==null){
 			head=n;
-			return;
 		}
 		else{
 			n.next=head;

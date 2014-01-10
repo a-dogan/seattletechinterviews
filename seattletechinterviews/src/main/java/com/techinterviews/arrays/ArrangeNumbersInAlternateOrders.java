@@ -33,7 +33,7 @@ public class ArrangeNumbersInAlternateOrders {
 	public static void sort(int array[]){
 		boolean bsort = false;
 		int i = 1; 
-		while(true){	
+		while(i<array.length){	
 			if(array[i-1] > array[i]){
 				int temp=array[i];
 				array[i]=array[i-1];
