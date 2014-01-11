@@ -1,44 +1,53 @@
 package com.techinterviews.queues;
 
+import java.util.NoSuchElementException;
+
 public class CircularQueueUsingArrays {
 	int [] array;
-	int head=0;
-	int tail=0;
+	int head=-1;
+	int tail=-1;
+	int currentSize=0;
 	
 	public CircularQueueUsingArrays(int size){
-
-		if(size>0)
-			array = new int[size];
+		
+		if(size==0)
+			throw new IllegalArgumentException("Queue size must be greater than 0");
+		
+		array = new int[size];
+		
 	}
 	
-	private boolean isFilled(){
-		
-		if(tail==(array.length-1))
-				return true;
-		
-		return false;
-	}
-	
-	public void enqueue(int v){
-		
+	public void enqueue(int v){	
 		//if filled add to head
-		if(isFilled()){
-			array[head]=v;
-			head++;
-		}
-		else{
-			array[tail]=v;
+		if(currentSize==array.length)
+			throw new IllegalStateException("Queue at max capacity");
+			
+		if(tail+1==array.length)
+			tail=0;
+		else
 			tail++;
-		}
+		
+		//if first element added
+		if(head==-1)
+			head=0;
+		
+		array[tail]=v;	
+		currentSize++;
 	}
 	
 	public int dequeue(){
 		int v = 0;
-		if(head!=0 && tail!=0){
-			v = this.array[head];
-			tail--;
-		}
-
+		
+		if(currentSize==0)
+			throw new NoSuchElementException();
+		
+		if(head+1==array.length)
+			head=0;
+		else
+			head++;
+		
+		v = this.array[head];
+		currentSize--;
 		return v;
 	}
 }
