@@ -3,10 +3,10 @@ package com.techinterviews.queues;
 import java.util.NoSuchElementException;
 
 public class CircularQueueUsingArrays {
-	int [] array;
-	int head=-1;
-	int tail=-1;
-	int currentSize=0;
+	private int [] array;
+	private int head=-1;
+	private int tail=-1;
+	private int currentSize=0;
 	
 	public CircularQueueUsingArrays(int size){
 		
@@ -15,6 +15,14 @@ public class CircularQueueUsingArrays {
 		
 		array = new int[size];
 		
+	}
+	
+	public boolean isEmpty(){
+		
+		if(currentSize>0)
+			return false;
+		
+		return true;
 	}
 	
 	public void enqueue(int v){	
