@@ -1,12 +1,6 @@
 package com.techinterviews.trees;
-import com.techinterviews.lists.LinkedList;
-import com.techinterviews.queues.CircularQueueUsingArrays;
 
 import java.util.ArrayList;
-import java.util.PriorityQueue;
-import java.util.LinkedList;
-
-import sun.misc.Queue;
 
 public class DFSBinaryTree {
 
@@ -70,8 +64,9 @@ public class DFSBinaryTree {
 	}
 	
 	public ArrayList<Integer> breadthFirstPrint(Node node){
-		LinkedList<Node> queue = new LinkedList<Node>();
+		java.util.Queue<Node> queue = new java.util.LinkedList<Node>();
 		
+		ArrayList<Integer> list = new ArrayList<Integer>();
 		queue.add(node);
 
 		while(!queue.isEmpty()){
@@ -79,7 +74,6 @@ public class DFSBinaryTree {
 			list.add(n.value);
 			if(n.left!=null)
 				queue.add(n.left);
-			
 			if(n.right!=null)
 				queue.add(n.right);
 		}
@@ -89,10 +83,19 @@ public class DFSBinaryTree {
 
 	public static void main(String[] args) {
 		DFSBinaryTree tree = new DFSBinaryTree();
-		DFSBinaryTree.Node n1 = new DFSBinaryTree.Node(6);
-		n1.left = new DFSBinaryTree.Node(3);
-		n1.right = new DFSBinaryTree.Node(7);
+		DFSBinaryTree.Node n1 = new DFSBinaryTree.Node(10);
 
+		DFSBinaryTree.Node nleft = new DFSBinaryTree.Node(5);
+		nleft.left = new DFSBinaryTree.Node(4);
+		nleft.right = new DFSBinaryTree.Node(7);
+		
+		DFSBinaryTree.Node nr = new DFSBinaryTree.Node(13);
+		nr.left = new DFSBinaryTree.Node(12);
+		nr.right = new DFSBinaryTree.Node(14);
+		
+		n1.left=nleft;
+		n1.right=nr;
+		
 		// tree.inOrderProcess(n1);
 //		tree.preOrderProcess(n1);
 //		for (DFSBinaryTree.Node l : tree.output) {
@@ -100,7 +103,7 @@ public class DFSBinaryTree {
 //		}
 		
 		for(Integer i:tree.breadthFirstPrint(n1))
-			System.out.println("-" + i);
+			System.out.println(i);
 
 	}
 
