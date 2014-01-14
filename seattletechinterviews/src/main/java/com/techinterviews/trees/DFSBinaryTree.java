@@ -81,20 +81,42 @@ public class DFSBinaryTree {
 		return list;
 	}
 
+	public int isTreeeBalanced(Node node){
+		//java.util.Queue<Node> queue = new java.util.LinkedList<Node>();
+		//queue.add(node);
+		int depth=0;
+		int leftDepth=0;
+		int rightDepth=0;
+		
+		if(node==null)
+			return 0;
+		
+		if(node.left!=null)
+			leftDepth = 1;
+		
+		if(node.right!=null)
+			rightDepth = 1;
+		
+		leftDepth = leftDepth + isTreeeBalanced(node.left);
+		rightDepth = rightDepth + isTreeeBalanced(node.right);
+
+		return (leftDepth-rightDepth);
+	}
+	
 	public static void main(String[] args) {
 		DFSBinaryTree tree = new DFSBinaryTree();
 		DFSBinaryTree.Node n1 = new DFSBinaryTree.Node(10);
 
 		DFSBinaryTree.Node nleft = new DFSBinaryTree.Node(5);
-		nleft.left = new DFSBinaryTree.Node(4);
-		nleft.right = new DFSBinaryTree.Node(7);
+		//nleft.left = new DFSBinaryTree.Node(4);
+		//nleft.right = new DFSBinaryTree.Node(7);
 		
 		DFSBinaryTree.Node nr = new DFSBinaryTree.Node(13);
 		nr.left = new DFSBinaryTree.Node(12);
 		nr.right = new DFSBinaryTree.Node(14);
 		
 		n1.left=nleft;
-		n1.right=nr;
+		//n1.right=nr;
 		
 		// tree.inOrderProcess(n1);
 //		tree.preOrderProcess(n1);
