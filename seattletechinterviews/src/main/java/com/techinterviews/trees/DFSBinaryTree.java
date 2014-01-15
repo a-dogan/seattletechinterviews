@@ -92,15 +92,13 @@ public class DFSBinaryTree {
 			return 0;
 		
 		if(node.left!=null)
-			leftDepth = 1;
+			leftDepth = 1 + isTreeeBalanced(node.left);
 		
 		if(node.right!=null)
-			rightDepth = 1;
+			rightDepth = 1 + isTreeeBalanced(node.right);
 		
-		leftDepth = leftDepth + isTreeeBalanced(node.left);
-		rightDepth = rightDepth + isTreeeBalanced(node.right);
 
-		return (leftDepth-rightDepth);
+		return Math.max(leftDepth, rightDepth);
 	}
 	
 	public static void main(String[] args) {
