@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.techinterviews.arrays.Find2NumbersThatAddToN;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 public class Find2NumbersThatAddToNTest {
 	
