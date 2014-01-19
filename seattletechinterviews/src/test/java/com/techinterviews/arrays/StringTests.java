@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import org.junit.Assert;
 
-public class Strings {
+public class StringTests {
 	
 	@Test
 	public void testFailingCase(){

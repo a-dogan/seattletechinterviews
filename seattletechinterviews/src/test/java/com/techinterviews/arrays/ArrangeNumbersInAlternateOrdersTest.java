@@ -1,7 +1,7 @@
 package com.techinterviews.arrays;
 import java.util.Random;
 
-import junit.framework.Assert;
+import org.junit.Assert;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -99,7 +99,6 @@ public class ArrangeNumbersInAlternateOrdersTest {
 		}
 		
 		long start3 = System.currentTimeMillis();
-		ArrangeNumbersInAlternateOrders arrange3 = new ArrangeNumbersInAlternateOrders();
 		arrange1.algorithm(array3);
 		long end3 = System.currentTimeMillis();
 		long timeSpent3 = end3 - start3;
