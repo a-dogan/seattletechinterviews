@@ -16,6 +16,14 @@ public class StringTests {
 	}
 	
 	@Test
+	public void testFailingDifferentLengthsCase(){
+		String a="big cat";
+		String b="dog";
+		
+		Assert.assertEquals(StringProblems.isStringPermuation(a, b), false);
+	}
+	
+	@Test
 	public void testPassingCase(){
 		String a="abc";
 		String b="bca";
