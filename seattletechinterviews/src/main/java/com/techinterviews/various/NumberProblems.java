@@ -31,6 +31,8 @@ public class NumberProblems {
 			}
 			if(found)
 				break;
+			//reset
+			numK*=numK;
 		}
 		
 		return currentK;
